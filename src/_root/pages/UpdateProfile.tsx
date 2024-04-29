@@ -76,21 +76,14 @@ const UpdateProfile = () => {
   return (
     <div className="flex flex-1">
       <div className="common-container">
-        <div className="flex-start gap-3 justify-start w-full max-w-5xl">
-          <img
-            src="/assets/icons/edit.svg"
-            width={36}
-            height={36}
-            alt="edit"
-            className="invert-white"
-          />
-          <h2 className="h3-bold md:h2-bold text-left w-full">Edit Profile</h2>
+        <div className="flex-start gap-3 justify-start w-full max-w-5xl mt-5">
+          <h6 className="h6-bold md:h6-bold text-right w-full">Edit profile</h6>
         </div>
 
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleUpdate)}
-            className="flex flex-col gap-7 w-full mt-4 max-w-5xl">
+            className="flex flex-col gap-7 w-full max-w-5xl">
             <FormField
               control={form.control}
               name="file"
@@ -112,7 +105,7 @@ const UpdateProfile = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="shad-form_label">Name</FormLabel>
+                  <FormLabel className="shad-form_label">Display name</FormLabel>
                   <FormControl>
                     <Input type="text" className="shad-input" {...field} />
                   </FormControl>
@@ -167,11 +160,11 @@ const UpdateProfile = () => {
                   <FormLabel className="shad-form_label">Bio</FormLabel>
                   <FormControl>
                     <Textarea
-                      className="shad-textarea custom-scrollbar"
+                      className="shad-textarea"
                       {...field}
+                      maxLength={160}
                     />
                   </FormControl>
-                  <FormMessage className="shad-form_message" />
                 </FormItem>
               )}
             />
@@ -188,7 +181,7 @@ const UpdateProfile = () => {
                 className="shad-button_primary whitespace-nowrap"
                 disabled={isLoadingUpdate}>
                 {isLoadingUpdate && <Loader />}
-                Update Profile
+                Update
               </Button>
             </div>
           </form>
