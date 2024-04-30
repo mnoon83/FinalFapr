@@ -33,7 +33,7 @@ const SigninForm = () => {
     const session = await signInAccount(user);
 
     if (!session) {
-      toast({ title: "Login failed. Please try again." });
+      toast({ title: "Log in failed. Please try again." });
       
       return;
     }
@@ -45,7 +45,7 @@ const SigninForm = () => {
 
       navigate("/");
     } else {
-      toast({ title: "Login failed. Please try again.", });
+      toast({ title: "Log in failed. Please try again.", });
       
       return;
     }
@@ -59,12 +59,12 @@ const SigninForm = () => {
         <h6 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Welcum back
         </h6>
-        <p className="text-light-3 small-medium md:base-regular mt-2">
+        <p className="text-light-3 small-medium md:base-regular">
           Log in here
         </p>
         <form
           onSubmit={form.handleSubmit(handleSignin)}
-          className="flex flex-col gap-5 w-full mt-4">
+          className="flex flex-col gap-5 w-full mt-3">
           <FormField
             control={form.control}
             name="email"
@@ -103,7 +103,7 @@ const SigninForm = () => {
             )}
           </Button>
 
-          <p className="text-small-regular text-light-2 text-center mt-2">
+          <p className="text-small-regular text-light-2 text-center">
             Need an account?
             <Link
               to="/sign-up"

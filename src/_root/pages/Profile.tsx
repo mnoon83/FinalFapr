@@ -78,7 +78,7 @@ const Profile = () => {
 
           <div className="flex justify-center gap-4">
             <div className={`${user.id !== currentUser.$id && "hidden"}`}>
-              {/* <Link
+              <Link
                 to={`/update-profile/${currentUser.$id}`}
                 className={`h-10 bg-dark-3 px-2 text-light-1 flex-center gap-2 rounded-lg ${
                   user.id !== currentUser.$id && "hidden"
@@ -92,7 +92,7 @@ const Profile = () => {
                 <p className="flex whitespace-nowrap small-medium">
                   Edit profile
                 </p>
-              </Link> */}
+              </Link>
             </div>
             <div className={`${user.id === id && "hidden"}`}>
               <Button type="button" className="shad-button_primary px-8">

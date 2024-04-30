@@ -76,14 +76,14 @@ const UpdateProfile = () => {
   return (
     <div className="flex flex-1">
       <div className="common-container">
-        <div className="flex-start gap-3 justify-start w-full max-w-5xl mt-5">
+        <div className="flex-start gap-3 justify-start w-full max-w-5xl">
           <h6 className="h6-bold md:h6-bold text-right w-full">Edit profile</h6>
         </div>
 
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleUpdate)}
-            className="flex flex-col gap-7 w-full max-w-5xl">
+            className="flex flex-col gap-7 w-full lg:w-1/4">
             <FormField
               control={form.control}
               name="file"
@@ -92,7 +92,7 @@ const UpdateProfile = () => {
                   <FormControl>
                     <ProfileUploader
                       fieldChange={field.onChange}
-                      mediaUrl={currentUser.imageUrl}
+                      mediaUrl={currentUser.imageUrl}                     
                     />
                   </FormControl>
                   <FormMessage className="shad-form_message" />
