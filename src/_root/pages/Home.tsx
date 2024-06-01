@@ -51,11 +51,11 @@ const Home = () => {
       </div>
 
       <div className="home-creators">
-        <h3 className="h3-bold flex-center text-light-1">Suggested Faprs</h3>
+        <h3 className="h3-bold flex-center text-light-1 mr-56">Suggested Faprs</h3>
         {isUserLoading && !creators ? (
           <Loader />
         ) : (
-          <ul className="grid 1xl gap-6">
+          <ul className="grid 1xl mr-56">
             {creators?.documents.map((creator) => (
               <li key={creator?.$id}>
                 <UserCard user={creator} />
