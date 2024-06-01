@@ -83,7 +83,24 @@ const PostForm = ({ post, action }: PostFormProps) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="flex flex-col gap-9 w-full  max-w-5xl">
+        className="flex flex-col gap-5 w-full  max-w-2xl">
+        <FormField
+          control={form.control}
+          name="file"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="shad-form_label">Add Photos</FormLabel>
+              <FormControl>
+                <FileUploader
+                  fieldChange={field.onChange}
+                  mediaUrl={post?.imageUrl}
+                />
+              </FormControl>
+              <FormMessage className="shad-form_message" />
+            </FormItem>
+          )}
+        />
+        
         <FormField
           control={form.control}
           name="caption"
@@ -101,24 +118,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
           )}
         />
 
-        <FormField
-          control={form.control}
-          name="file"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="shad-form_label">Add Photos</FormLabel>
-              <FormControl>
-                <FileUploader
-                  fieldChange={field.onChange}
-                  mediaUrl={post?.imageUrl}
-                />
-              </FormControl>
-              <FormMessage className="shad-form_message" />
-            </FormItem>
-          )}
-        />
-
-        <FormField
+        {/* <FormField
           control={form.control}
           name="location"
           render={({ field }) => (
@@ -130,8 +130,8 @@ const PostForm = ({ post, action }: PostFormProps) => {
               <FormMessage className="shad-form_message" />
             </FormItem>
           )}
-        />
-
+        /> */}
+{/* 
         <FormField
           control={form.control}
           name="tags"
@@ -151,7 +151,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
               <FormMessage className="shad-form_message" />
             </FormItem>
           )}
-        />
+        /> */}
 
         <div className="flex gap-4 items-center justify-end">
           <Button
