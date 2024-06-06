@@ -80,7 +80,7 @@ const Profile = () => {
             <div className={`${user.id !== currentUser.$id && "hidden"}`}>
               <Link
                 to={`/update-profile/${currentUser.$id}`}
-                className={`h-10 bg-dark-3 px-2 text-light-1 flex-center gap-2 rounded-lg ${
+                className={`h-10 px-2 text-light-1 flex-center gap-2 rounded-lg ${
                   user.id !== currentUser.$id && "hidden"
                 }`}>
                 <img
@@ -89,7 +89,7 @@ const Profile = () => {
                   width={16}
                   height={16}
                 />
-                <p className="flex whitespace-nowrap small-medium">
+                <p className="flex whitespace-nowrap mr-60">
                   Edit profile
                 </p>
               </Link>

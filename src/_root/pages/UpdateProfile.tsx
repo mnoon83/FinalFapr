@@ -77,7 +77,7 @@ const UpdateProfile = () => {
     <div className="flex flex-1">
       <div className="common-container">
         <div className="flex-start gap-3 justify-start w-full max-w-5xl">
-          <h6 className="h6-bold md:h6-bold text-right w-full">Edit profile</h6>
+          <h6 className="h3 md:h3 flex-center w-full">Edit profile</h6>
         </div>
 
         <Form {...form}>
