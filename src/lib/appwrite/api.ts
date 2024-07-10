@@ -10,37 +10,6 @@ import { IUpdatePost, INewPost, INewUser, IUpdateUser } from "@/types";
 // ============================== SIGN UP
 export async function createUserAccount(user: INewUser) {
   try {
-    // Check if email already exists
-    const emailExists = await databases.listDocuments(
-      appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
-      [Query.equal("email", user.email)]
-    );
-    if (emailExists.documents.length > 0) {
-      throw new Error("Email already in use");
-    }
-
-    // Check if username already exists
-    const usernameExists = await databases.listDocuments(
-      appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
-      [Query.equal("username", user.username)]
-    );
-    if (usernameExists.documents.length > 0) {
-      throw new Error("Username already in use");
-    }
-
-    // Check if display name already exists
-    const displayNameExists = await databases.listDocuments(
-      appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
-      [Query.equal("name", user.name)]
-    );
-    if (displayNameExists.documents.length > 0) {
-      throw new Error("Display name already in use");
-    }
-
-    // Create new user account
     const newAccount = await account.create(
       ID.unique(),
       user.email,
@@ -48,7 +17,7 @@ export async function createUserAccount(user: INewUser) {
       user.name
     );
 
-    if (!newAccount) throw new Error("Failed to create account");
+    if (!newAccount) throw Error;
 
     const avatarUrl = avatars.getInitials(user.name);
 
@@ -62,11 +31,10 @@ export async function createUserAccount(user: INewUser) {
 
     return newUser;
   } catch (error) {
-    console.error(error);
-    return {message:"This account seems to already be in use, Try logging in!" };
+    console.log(error);
+    return error;
   }
 }
-
 
 // ============================== SAVE USER TO DB
 export async function saveUserToDB(user: {
